@@ -1,0 +1,84 @@
+API CITAS CMDOLEX
+
+	ENDPOINT:		/medicos
+	METODO:			GET
+	DESCRIPCION:	Endpoint para recuperar los medicos registrados
+	RESPONSE:		{
+						"isValid": 	true,
+						"message": 	"OK",
+						"result": 	[
+										{
+											"doctor_id": 21,
+											"nombre": "Jesus Martinez Martinez"
+											"telefono": "telefono"
+										}
+									]
+					}
+
+
+
+
+
+	ENDPOINT:		/horarios?doctor_id={id}&&fecha={dd-mm-yyyy}
+	METODO:			GET
+	DESCRIPCION:	Endpoint para recuperar los horarios disponibles y los ya reservados
+	RESPONSE:		{
+						"isValid": 	true,
+						"message": 	"OK",
+						"result": 	[
+										{
+											"hora_inicio_cita": "09:00",
+											"hora_fin_cita": "10:00",
+											"cita_agendada":true
+										}
+									]
+					}
+
+
+
+
+	ENDPOINT:		/cita
+	METODO:			POST
+	BODY:			{
+						"doctor_id": 5
+						"fecha":"dd-mm-yyyy",
+						"hora_inicio":"10:00",
+						"nombre_paciente":"nombre",
+						"correo_paciente":"correo"
+					}
+	DESCRIPCION:	Endpoint para registrar cita
+	RESPONSE:		{
+						"isValid": 	true,
+						"message": 	"OK"
+					}
+
+
+
+
+	ENDPOINT:		/cita?doctor_id={id}&&fecha={dd-mm-yyyy}
+	METODO:			GET
+	DESCRIPCION:	Endpoint para recuperar citas
+	RESPONSE:		{
+						"isValid": 	true,
+						"message": 	"OK",
+						"result": 	[
+										{
+											"doctor_id": 5,
+											"nombre_doctor": "nombre",
+											"fecha":"dd-mm-yyyy",
+											"hora_inicio":"10:00",
+											"nombre_paciente":"nombre",
+											"correo_paciente":"correo"
+										}
+									]
+					}
+
+
+
+	ENDPOINT:		/cita/{cita_id}
+	METODO:			DELETE
+	DESCRIPCION:	Endpoint para eliminar cita
+	RESPONSE:		{
+						"isValid": 	true,
+						"message": 	"OK"
+					}
