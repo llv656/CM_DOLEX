@@ -193,7 +193,7 @@
     <node id="n16">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="40.0" width="160.0" x="404.51148936170216" y="766.0229787234043"/>
+          <y:Geometry height="40.0" width="160.0" x="287.0" y="730.483085106383"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="105.337890625" x="27.3310546875" xml:space="preserve" y="10.6494140625">CIMINUTOS_CITA<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
@@ -445,7 +445,6 @@
     </node>
     <node id="n39" yfiles.foldertype="group">
       <data key="d4" xml:space="preserve"/>
-      <data key="d5"/>
       <data key="d6">
         <y:ProxyAutoBoundsNode>
           <y:Realizers active="0">
@@ -474,7 +473,6 @@
       </data>
       <graph edgedefault="directed" id="n39:">
         <node id="n39::n0">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="30.0" x="895.5650959614188" y="669.2493617021277"/>
@@ -493,7 +491,6 @@
           </data>
         </node>
         <node id="n39::n1">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="30.0" x="895.5650959614188" y="714.676010638298"/>
@@ -512,7 +509,6 @@
           </data>
         </node>
         <node id="n39::n2">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="49.297304964539194" x="895.5650959614188" y="760.238510638298"/>
@@ -531,7 +527,6 @@
           </data>
         </node>
         <node id="n39::n3">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="30.0" width="49.297304964539194" x="895.5650959614188" y="802.772340425532"/>
@@ -550,7 +545,6 @@
           </data>
         </node>
         <node id="n39::n4">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="38.30237911025142" width="160.0000000000001" x="943.3355924153195" y="666.6800676982592"/>
@@ -562,7 +556,6 @@
           </data>
         </node>
         <node id="n39::n5">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="38.30237911025142" width="160.0000000000001" x="943.3355924153193" y="704.9824468085106"/>
@@ -574,7 +567,6 @@
           </data>
         </node>
         <node id="n39::n6">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="38.30237911025142" width="160.0000000000001" x="928.9420730280851" y="756.0873210831722"/>
@@ -586,7 +578,6 @@
           </data>
         </node>
         <node id="n39::n7">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="38.30237911025142" width="160.0000000000001" x="925.793667812766" y="794.3897001934237"/>
@@ -598,7 +589,6 @@
           </data>
         </node>
         <node id="n39::n8">
-          <data key="d5"/>
           <data key="d6">
             <y:ShapeNode>
               <y:Geometry height="38.30237911025142" width="160.0000000000001" x="933.6646808510638" y="841.1549806576403"/>
@@ -612,7 +602,6 @@
       </graph>
     </node>
     <node id="n40">
-      <data key="d5"/>
       <data key="d6">
         <y:ShapeNode>
           <y:Geometry height="30.0" width="30.0" x="905.2137484436885" y="845.306170212766"/>
@@ -627,6 +616,17 @@
             </y:ModelParameter>
           </y:NodeLabel>
           <y:Shape type="diamond"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n41">
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="40.0" width="160.0" x="447.0" y="750.238510638298"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" raised="false" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="82.685546875" x="38.6572265625" xml:space="preserve" y="10.6494140625">CB_ESTATUS<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
+          <y:Shape type="ellipse"/>
         </y:ShapeNode>
       </data>
     </node>
@@ -911,7 +911,6 @@
       </data>
     </edge>
     <edge id="e28" source="n1" target="n33">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -922,7 +921,6 @@
       </data>
     </edge>
     <edge id="e29" source="n1" target="n34">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -933,6 +931,16 @@
       </data>
     </edge>
     <edge id="e30" source="n3" target="n34">
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e31" source="n3" target="n41">
       <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
