@@ -1,0 +1,214 @@
+openapi: 3.0.1
+info:
+  title: API Citas
+  description: Esta API expone servicios para la gestión de citas del consultorio
+    medico dolex.
+  contact:
+    name: LLV656
+    url: ""
+    email: leinesvitelenin@gmail.com
+  license:
+    name: MIT License
+    url: https://choosealicense.com/licenses/mit/
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+  description: URL de servidor en ambiente desarrollo
+paths:
+  /citas:
+    get:
+      tags:
+      - citas-controller
+      summary: Recuperar citas del sistema
+      operationId: recuperarCitas
+      parameters:
+      - name: doctor_id
+        in: query
+        description: Id del doctor a buscar
+        required: false
+        schema:
+          type: integer
+      - name: fecha
+        in: query
+        description: Fecha a buscar
+        required: false
+        schema:
+          type: string
+      - name: page_size
+        in: query
+        description: Tamaño de página
+        required: false
+        schema:
+          type: integer
+      - name: page_number
+        in: query
+        description: Número de página
+        required: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "500":
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerErrorResponseDTO'
+    post:
+      tags:
+      - citas-controller
+      summary: Registrar cita en el sistema
+      operationId: registrarCita
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CitaModel'
+        required: true
+      responses:
+        "201":
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "500":
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerErrorResponseDTO'
+  /medicos:
+    get:
+      tags:
+      - medicos-controller
+      summary: Recuperar Medicos del sistema
+      operationId: recuperarMedicos
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "404":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "500":
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerErrorResponseDTO'
+  /horarios:
+    get:
+      tags:
+      - horarios-controller
+      summary: Recuperar horarios disponible por doctor
+      operationId: recuperarHorarios
+      parameters:
+      - name: doctor_id
+        in: query
+        description: Id del doctor a buscar
+        required: false
+        schema:
+          type: integer
+      - name: fecha
+        in: query
+        description: Fecha a buscar
+        required: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "500":
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerErrorResponseDTO'
+  /citas/{idCita}:
+    delete:
+      tags:
+      - citas-controller
+      summary: Eliminar cita del sistema
+      operationId: eliminarCita
+      parameters:
+      - name: idCita
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceResponseDTO'
+        "500":
+          description: internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerErrorResponseDTO'
+components:
+  schemas:
+    CitaModel:
+      type: object
+      properties:
+        doctor_id:
+          type: integer
+          format: int32
+        fecha_cita:
+          type: string
+          format: date
+          example: 22-09-2023
+        hora_inicio:
+          type: string
+          format: hour
+          example: 10:00:00
+        nombre_paciente:
+          type: string
+        correo_paciente:
+          type: string
+    GetServiceResponseDTO:
+      type: object
+      properties:
+        valid:
+          type: boolean
+        message:
+          type: string
+        response:
+          type: object
+    ServerErrorResponseDTO:
+      type: object
+      properties:
+        error:
+          type: string
