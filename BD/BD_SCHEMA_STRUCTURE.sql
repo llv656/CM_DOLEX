@@ -230,5 +230,6 @@ INSERT INTO cmdolex.tb_configuracion_tiempo_cita
     (
         ci_configuracion_tiempo_cita_id, 
         ci_minutos_cita,
+        cb_estatus,
         cts_fecha_registro
-    ) VALUES (1, 60, current_timestamp);
+    ) VALUES (1, 60, true, current_timestamp);

@@ -1,7 +1,5 @@
 package com.dolex.APICitasCMDolex.controller;
 
-import java.util.HashMap;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dolex.APICitasCMDolex.dto.GetServiceResponseDTO;
+import com.dolex.APICitasCMDolex.dto.ServerErrorResponseDTO;
 import com.dolex.APICitasCMDolex.model.CitaModel;
 import com.dolex.APICitasCMDolex.service.ICitasService;
+import com.dolex.APICitasCMDolex.values.MessageUser;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -50,6 +50,11 @@ public class CitasController {
 			content = @Content(mediaType = "application/json",
 				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
+		@ApiResponse(responseCode = "500", 
+		description = "internal server error",
+		content = @Content(mediaType = "application/json",
+			schema = @Schema(implementation = ServerErrorResponseDTO.class))
+		),
 	})
 	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
 	public Object registrarCita(@RequestBody CitaModel citaModel) {
@@ -69,8 +74,10 @@ public class CitasController {
 			LOGGER.error("**".concat(method).concat(ex.getMessage()));
 			LOGGER.error("**".concat(method).concat(ex.toString()));
 			
-			return new ResponseEntity<Object>(
-					new HashMap<String, String>().put("Error", "Operación inválida"), HttpStatus.INTERNAL_SERVER_ERROR);
+			ServerErrorResponseDTO serverError = new ServerErrorResponseDTO();
+			serverError.setError(MessageUser.SERVER_ERROR);
+			
+			return new ResponseEntity<Object>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
@@ -81,10 +88,10 @@ public class CitasController {
 			content = @Content(mediaType = "application/json",
 				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
-		@ApiResponse(responseCode = "400", 
-			description = "bad request",
-			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseDTO.class))
+		@ApiResponse(responseCode = "500", 
+		description = "internal server error",
+		content = @Content(mediaType = "application/json",
+			schema = @Schema(implementation = ServerErrorResponseDTO.class))
 		),
 	})
 	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -92,26 +99,31 @@ public class CitasController {
 			@Parameter(in = ParameterIn.QUERY, name = "doctor_id", description = "Id del doctor a buscar", schema = @Schema(type = "integer"))
 			@RequestParam(required = false, name = "doctor_id") Integer doctorID,
 			@Parameter(in = ParameterIn.QUERY, name = "fecha", description = "Fecha a buscar", schema = @Schema(type = "string"))
-			@RequestParam(required = false, name = "fecha") String fecha
+			@RequestParam(required = false, name = "fecha") String fecha,
+			@Parameter(in = ParameterIn.QUERY, name = "page_size", description = "Tamaño de página", schema = @Schema(type = "integer"))
+			@RequestParam(required = false, name = "page_size") Integer pageSize,
+			@Parameter(in = ParameterIn.QUERY, name = "page_number", description = "Número de página", schema = @Schema(type = "integer"))
+			@RequestParam(required = false, name = "page_number") Integer pageNumber
 			 ) {
 		String method = new Object(){}.getClass().getEnclosingMethod().getName();
 		LOGGER.info("**Empieza solicitud ".concat(method));
 		
 		try {
 			LOGGER.info("\tEmpieza servicio de recuperación de citas");
-			GetServiceResponseDTO responseDTO = citasService.getCitas(doctorID, fecha);
+			GetServiceResponseDTO responseDTO = citasService.getCitas(doctorID, fecha, pageSize, pageNumber);
 		
 			LOGGER.info("**Termina solicitud ".concat(method));
 			
-			return new ResponseEntity<Object>(responseDTO,
-					responseDTO.isValid() ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Object>(responseDTO, HttpStatus.OK);
 			
 		} catch (Exception ex) {
 			LOGGER.error("**".concat(method).concat(ex.getMessage()));
 			LOGGER.error("**".concat(method).concat(ex.toString()));
 			
-			return new ResponseEntity<Object>(
-					new HashMap<String, String>().put("Error", "Operación inválida"), HttpStatus.INTERNAL_SERVER_ERROR);
+			ServerErrorResponseDTO serverError = new ServerErrorResponseDTO();
+			serverError.setError(MessageUser.SERVER_ERROR);
+			
+			return new ResponseEntity<Object>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
@@ -122,10 +134,10 @@ public class CitasController {
 			content = @Content(mediaType = "application/json",
 				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
-		@ApiResponse(responseCode = "400", 
-			description = "bad request",
-			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseDTO.class))
+		@ApiResponse(responseCode = "500", 
+		description = "internal server error",
+		content = @Content(mediaType = "application/json",
+			schema = @Schema(implementation = ServerErrorResponseDTO.class))
 		),
 	})
 	@DeleteMapping(value = {"/{idCita}"},produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -139,15 +151,16 @@ public class CitasController {
 		
 			LOGGER.info("**Termina solicitud ".concat(method));
 			
-			return new ResponseEntity<Object>(responseDTO,
-					responseDTO.isValid() ? HttpStatus.OK : HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Object>(responseDTO, HttpStatus.OK);
 			
 		} catch (Exception ex) {
 			LOGGER.error("**".concat(method).concat(ex.getMessage()));
 			LOGGER.error("**".concat(method).concat(ex.toString()));
 			
-			return new ResponseEntity<Object>(
-					new HashMap<String, String>().put("Error", "Operación inválida"), HttpStatus.INTERNAL_SERVER_ERROR);
+			ServerErrorResponseDTO serverError = new ServerErrorResponseDTO();
+			serverError.setError(MessageUser.SERVER_ERROR);
+			
+			return new ResponseEntity<Object>(serverError, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 

@@ -43,7 +43,7 @@ public class MedicosServiceImpl implements IMedicosService {
 		
 		if (doctoresResponse.isEmpty()) {
 			response.setValid(false);
-			response.setMessage(MessageUser.NO_SE_ENCOTRARON_MEDICOS);
+			response.setMessage(MessageUser.ERR_GET_MEDICOS);
 		} else {
 			response.setValid(true);
 			response.setMessage(MessageUser.OK);

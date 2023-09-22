@@ -7,7 +7,7 @@ public interface ICitasService {
 	
 	public GetServiceResponseDTO addCita(CitaModel citaModel);
 	
-	public GetServiceResponseDTO getCitas(Integer doctorID, String fecha);
+	public GetServiceResponseDTO getCitas(Integer doctorID, String fecha, Integer pageSize, Integer pageNumber);
 	
 	public GetServiceResponseDTO deleteCita(Integer idCita);
 
