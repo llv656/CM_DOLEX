@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dolex.APICitasCMDolex.dto.GetServiceResponseDTO;
 import com.dolex.APICitasCMDolex.model.CitaModel;
-import com.dolex.APICitasCMDolex.model.GetServiceResponseModel;
 import com.dolex.APICitasCMDolex.service.ICitasService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -43,12 +43,12 @@ public class CitasController {
 		@ApiResponse(responseCode = "201", 
 			description = "CREATED", 
 			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseModel.class))
+				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
 		@ApiResponse(responseCode = "400", 
 			description = "bad request",
 			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseModel.class))
+				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
 	})
 	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -58,7 +58,7 @@ public class CitasController {
 		
 		try {
 			LOGGER.info("\tEmpieza servicio agregar cita");
-			GetServiceResponseModel responseDTO = citasService.addCita(citaModel);
+			GetServiceResponseDTO responseDTO = citasService.addCita(citaModel);
 		
 			LOGGER.info("**Termina solicitud ".concat(method));
 			
@@ -79,12 +79,12 @@ public class CitasController {
 		@ApiResponse(responseCode = "200", 
 			description = "OK", 
 			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseModel.class))
+				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
 		@ApiResponse(responseCode = "400", 
 			description = "bad request",
 			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseModel.class))
+				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
 	})
 	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -99,7 +99,7 @@ public class CitasController {
 		
 		try {
 			LOGGER.info("\tEmpieza servicio de recuperación de citas");
-			GetServiceResponseModel responseDTO = citasService.getCitas(doctorID, fecha);
+			GetServiceResponseDTO responseDTO = citasService.getCitas(doctorID, fecha);
 		
 			LOGGER.info("**Termina solicitud ".concat(method));
 			
@@ -120,12 +120,12 @@ public class CitasController {
 		@ApiResponse(responseCode = "200", 
 			description = "OK", 
 			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseModel.class))
+				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
 		@ApiResponse(responseCode = "400", 
 			description = "bad request",
 			content = @Content(mediaType = "application/json",
-				schema = @Schema(implementation = GetServiceResponseModel.class))
+				schema = @Schema(implementation = GetServiceResponseDTO.class))
 		),
 	})
 	@DeleteMapping(value = {"/{idCita}"},produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -135,7 +135,7 @@ public class CitasController {
 		
 		try {
 			LOGGER.info("\tEmpieza servicio de eliminar cita");
-			GetServiceResponseModel responseDTO = citasService.deleteCita(idCita);
+			GetServiceResponseDTO responseDTO = citasService.deleteCita(idCita);
 		
 			LOGGER.info("**Termina solicitud ".concat(method));
 			

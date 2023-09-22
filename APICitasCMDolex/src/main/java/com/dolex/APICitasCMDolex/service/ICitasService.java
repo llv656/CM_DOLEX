@@ -1,14 +1,14 @@
 package com.dolex.APICitasCMDolex.service;
 
+import com.dolex.APICitasCMDolex.dto.GetServiceResponseDTO;
 import com.dolex.APICitasCMDolex.model.CitaModel;
-import com.dolex.APICitasCMDolex.model.GetServiceResponseModel;
 
 public interface ICitasService {
 	
-	public GetServiceResponseModel addCita(CitaModel citaModel);
+	public GetServiceResponseDTO addCita(CitaModel citaModel);
 	
-	public GetServiceResponseModel getCitas(Integer doctorID, String fecha);
+	public GetServiceResponseDTO getCitas(Integer doctorID, String fecha);
 	
-	public GetServiceResponseModel deleteCita(Integer idCita);
+	public GetServiceResponseDTO deleteCita(Integer idCita);
 
 }

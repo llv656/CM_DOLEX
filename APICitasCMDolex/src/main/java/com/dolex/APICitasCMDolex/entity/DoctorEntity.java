@@ -71,7 +71,7 @@ public class DoctorEntity {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
-	public String getCorreo() {
+	public String getTelefono() {
 		return telefono;
 	}
 

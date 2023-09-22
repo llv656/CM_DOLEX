@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.dolex.APICitasCMDolex.entity.DiaEntity;
 
-public interface IDiaDAO extends JpaRepository<DiaEntity, Integer> {
+public interface IDiasDAO extends JpaRepository<DiaEntity, Integer> {
 
 }

@@ -2,7 +2,7 @@ package com.dolex.APICitasCMDolex.values;
 
 public final class MessageUser {
 
-	public static final String FALTAN_CAMPOS = "Por favor, relacione el nombre, al menos un apellido y la fecha de nacimiento";
+	public static final String ERR_CAMPOS_HORARIOS = "Por favor, relacione el id del doctor y la fecha";
 	
 	public static final String NO_SE_ENCOTRO_CITA = "No se encontro la cita";
 	
@@ -10,4 +10,5 @@ public final class MessageUser {
 	
 	public static final String OK = "Operación exitosa";
 	
+	public static final String SERVER_ERROR = "Operación inválida, contacte el administrador";
 }

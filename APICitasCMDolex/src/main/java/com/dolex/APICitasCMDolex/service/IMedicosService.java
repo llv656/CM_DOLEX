@@ -1,9 +1,9 @@
 package com.dolex.APICitasCMDolex.service;
 
-import com.dolex.APICitasCMDolex.model.GetServiceResponseModel;
+import com.dolex.APICitasCMDolex.dto.GetServiceResponseDTO;
 
 public interface IMedicosService {
 	
-	public GetServiceResponseModel getMedicos();
+	public GetServiceResponseDTO getMedicos();
 
 }

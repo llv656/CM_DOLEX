@@ -16,15 +16,18 @@ public class ConfiguracionTiempoCitaEntity {
 	private Integer confTiempoCitaID;
     @Column(name = "ci_minutos_cita")
 	private Integer minutosCita;
+    @Column(name="cb_estatus")
+	private Boolean estatus;
     @Column(name="cts_fecha_registro")
 	private LocalDateTime fechaRegistro;
-	
+    
 	public ConfiguracionTiempoCitaEntity() {}
 
-	public ConfiguracionTiempoCitaEntity(Integer confTiempoCitaID, Integer minutosCita,
+	public ConfiguracionTiempoCitaEntity(Integer confTiempoCitaID, Integer minutosCita, Boolean estatus,
 			LocalDateTime fechaRegistro) {
 		this.confTiempoCitaID = confTiempoCitaID;
 		this.minutosCita = minutosCita;
+		this.estatus = estatus;
 		this.fechaRegistro = fechaRegistro;
 	}
 
@@ -44,6 +47,14 @@ public class ConfiguracionTiempoCitaEntity {
 		this.minutosCita = minutosCita;
 	}
 
+	public Boolean getEstatus() {
+		return estatus;
+	}
+
+	public void setEstatus(Boolean estatus) {
+		this.estatus = estatus;
+	}
+
 	public LocalDateTime getFechaRegistro() {
 		return fechaRegistro;
 	}
@@ -51,5 +62,5 @@ public class ConfiguracionTiempoCitaEntity {
 	public void setFechaRegistro(LocalDateTime fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
-
+	
 }

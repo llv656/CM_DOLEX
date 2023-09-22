@@ -1,12 +1,12 @@
-package com.dolex.APICitasCMDolex.model;
+package com.dolex.APICitasCMDolex.dto;
 
-public class GetServiceResponseModel {
+public class GetServiceResponseDTO {
 	
 	public boolean valid;
 	public String message;
 	public Object response;
 	
-	public GetServiceResponseModel() {}
+	public GetServiceResponseDTO() {}
 
 	public boolean isValid() {
 		return valid;
