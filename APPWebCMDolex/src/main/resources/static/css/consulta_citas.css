@@ -1,0 +1,72 @@
+@charset "ISO-8859-1";
+
+body {
+    background: #44354D;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: block;
+    overflow-x: hidden;
+
+}
+#contenedor {
+    background: rgba(0, 0, 0, 0.75);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 2%;
+    border-radius: 25px;
+    height: 75vh;
+    display: inline-block;
+}
+
+#encabezadoPrincipal {
+	text-align:center;
+}
+
+#paginador {
+	justify-content: center;
+}
+
+.menu-modulos {
+	color: white;
+	font-size: 22px;
+}
+
+.opcion-contextual {
+	text-align:center;
+}
+
+#divPagination{
+	height:15%;
+	margin-top:2%;
+}
+
+#divTable{
+	height:75%;
+	overflow-y:auto;
+}
+
+#divTitle{
+	height:10%;
+}
+
+.table {
+	height: fit-content;
+}
+
+#leyenda{
+	color: rgba(255, 255, 255, 0.4);
+	padding-left:2%;
+}
+  
+h1, th{
+    color:white;
+}
+
+td {
+    color: white;
+    background-color: rgb(72, 70, 70);
+    border-radius:900px; /* Ajusta el valor según el radio de redondeo deseado */
+}

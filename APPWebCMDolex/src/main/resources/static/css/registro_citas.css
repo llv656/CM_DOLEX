@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+body {
+    background: #44354D;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: block;
+    overflow-x: hidden;
+
+}
+#contenedor {
+    background: rgba(0, 0, 0, 0.75);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 2%;
+    border-radius: 25px;
+    height: 75vh;
+    display: inline-block;
+}
+
+#encabezadoPrincipal {
+	text-align:center;
+}
+
+.form-label {
+	color: white;
+	font-size: 18px;
+	
+}
+
+#tituloRegistroCitas {
+	height:10%;
+}
+
+#containerform {
+	height:90%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#btnRegistrarCita {
+	width: auto;	
+}
+
+#contenedorBtnRegistrar {
+	display: flex;
+	justify-content: center;
+	margin-top: 5%;
+}
