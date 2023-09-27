@@ -18,13 +18,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         });
 
         http.authorizeRequests()
-<<<<<<< HEAD
-                .anyRequest().authenticated();
-=======
+                .anyRequest().authenticated()
         		.antMatchers("/", "/login").permitAll()
                 .anyRequest().authenticated();
         
->>>>>>> develop
     }
 
     private ClientRegistrationRepository clientRepository() {
