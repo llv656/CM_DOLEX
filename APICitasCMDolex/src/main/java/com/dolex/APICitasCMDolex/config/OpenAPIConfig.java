@@ -35,7 +35,7 @@ public class OpenAPIConfig {
 		    .title("API Citas")
 		    .version("1.0.0")
 		    .contact(contact)
-		    .description("Esta API expone servicios para la gestión de citas del consultorio medico dolex.")
+		    .description("API encargada de la gestión de citas del consultorio medico dolex.")
 		    .license(mitLicense);
 		
 		return new OpenAPI().info(info).servers(List.of(devServer));
