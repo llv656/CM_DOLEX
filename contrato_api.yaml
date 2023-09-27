@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: API Citas
-  description: Esta API expone servicios para la gestión de citas del consultorio
+  description: API encargada de la gestión de citas del consultorio
     medico dolex.
   contact:
     name: LLV656
